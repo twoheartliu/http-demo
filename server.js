@@ -33,6 +33,11 @@ var server = http.createServer(function (request, response) {
     response.setHeader('Content-Type', 'text/css;charset=utf-8')
     response.write('body{background-color: red; color: black}')
     response.end()
+  } else {
+    response.statusCode = 404
+    response.setHeader('Content-Type', 'text/html;charset=utf-8')
+    response.write('页面不存在')
+    response.end()
   }
   /******** 代码结束，下面不要看 ************/
 })
