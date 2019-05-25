@@ -21,14 +21,20 @@ var server = http.createServer(function (request, response) {
   if (path === '/index' || path === '/') {
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/html;charset=utf-8')
-    response.write('<!DOCTYPE html><head><title>Document</title><script src="/script"></script><link rel="stylesheet" href="/css"></head><body><div>hello world!</div></body></html>')
+    response.write('<!DOCTYPE html>' +
+      '<head>' +
+      '<title>Document</title>' +
+      '<script src="/main.js"></script>' +
+      '<link rel="stylesheet" href="/style.css">' +
+      '</head>' +
+      '<body><div>hello world!</div></body></html>')
     response.end()
-  } else if (path === '/script') {
+  } else if (path === '/main.js') {
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/script;charset=utf-8')
     response.write('alert("hello")')
     response.end()
-  } else if (path === '/css') {
+  } else if (path === '/style.css') {
     response.statusCode = 200
     response.setHeader('Content-Type', 'text/css;charset=utf-8')
     response.write('body{background-color: red; color: black}')
